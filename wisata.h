@@ -3,6 +3,9 @@
 #include <iostream>
 using namespace std;
 
+#define first(L) L.first
+#define last(L) L.last
+
 typedef struct paketWisata *adrPaket;
 typedef struct elmRelasi *adrRelasi;
 typedef struct wisatawan *adrWisatawan;
@@ -26,7 +29,7 @@ struct elmRelasi {
 
 struct elmWisatawan {
     wisatawan info;
-    listRelasi relasi;
+    adrRelasi relasi;
     adrWisatawan next;
 };
 
@@ -44,8 +47,6 @@ struct listPaket {
     adrPaket first;
 };
 
-struct listRelasi {
-    adrRelasi first;
-};
-
+void createListWisatawan(listWisatawan &W);
+void createListPaket(listPaket &P);
 #endif // WISATA_H_INCLUDED
