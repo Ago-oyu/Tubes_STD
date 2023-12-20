@@ -5,10 +5,13 @@ using namespace std;
 
 #define first(L) L.first
 #define last(L) L.last
+#define info(P) P->info
+#define next(P) P->next
+#define prev(P) P->prev
 
-typedef struct paketWisata *adrPaket;
+typedef struct elmPaketWisata*adrPaket;
 typedef struct elmRelasi *adrRelasi;
-typedef struct wisatawan *adrWisatawan;
+typedef struct elmWisatawan *adrWisatawan;
 
 struct wisatawan {
     string nama;
@@ -30,6 +33,7 @@ struct elmRelasi {
 struct elmWisatawan {
     wisatawan info;
     adrRelasi relasi;
+    adrWisatawan prev;
     adrWisatawan next;
 };
 
@@ -49,4 +53,6 @@ struct listPaket {
 
 void createListWisatawan(listWisatawan &W);
 void createListPaket(listPaket &P);
+adrWisatawan createElmWisatawan(wisatawan X);
+adrPaket createElmPaket(paketWisata X);
 #endif // WISATA_H_INCLUDED
