@@ -31,3 +31,4 @@ void insertLastWisatawan(listWisatawan &W, adrWisatawan Q) {
 void insertLastPaket(listPaket &P, adrPaket Q) {
 
 }
+//insert last paket
