@@ -55,4 +55,7 @@ void createListWisatawan(listWisatawan &W);
 void createListPaket(listPaket &P);
 adrWisatawan createElmWisatawan(wisatawan X);
 adrPaket createElmPaket(paketWisata X);
+void insertLastWisatawan(listWisatawan &W, adrWisatawan Q);
+void insertLastPaket(listPaket &P, adrPaket Q);
+
 #endif // WISATA_H_INCLUDED

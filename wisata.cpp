@@ -47,3 +47,15 @@ void insertLastPaket(listPaket &P, adrPaket Q) {
     }
 }
 
+adrWisatawan cariWisatawan(listWisatawan &W, string nama) {
+    adrWisatawan found = NULL;
+    adrWisatawan curr = first(W);
+    while (curr != NULL && found == NULL) {
+        if (info(curr).nama == nama) {
+            found = curr;
+        }
+        curr = next(curr);
+    }
+    return found;
+}
+
