@@ -16,13 +16,14 @@ typedef struct elmWisatawan *adrWisatawan;
 struct wisatawan {
     string nama;
     int umur;
-
+    int banyakOrang;
 };
 
 struct paketWisata {
     string destinasi;
     int harga;
-
+    int durasiHari;
+    int durasiMalam;
 };
 
 struct elmRelasi {

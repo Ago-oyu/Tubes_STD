@@ -59,3 +59,19 @@ adrWisatawan cariWisatawan(listWisatawan &W, string nama) {
     return found;
 }
 
+adrPaket cariPaket(listPaket &P, string destinasi) {
+    adrPaket found = NULL;
+    adrPaket curr = first(P);
+    while (curr != NULL && found == NULL) {
+        if (info(curr).destinasi == destinasi) {
+            found = curr;
+        }
+        curr = next(curr);
+    }
+    return found;
+}
+
+void showAllWisatawan(listWisatawan &W) {
+    adrWisatawan curr;
+
+}
