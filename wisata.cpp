@@ -25,10 +25,25 @@ adrPaket createElmPaket(paketWisata X) {
 }
 
 void insertLastWisatawan(listWisatawan &W, adrWisatawan Q) {
-
+    if (first(W) == NULL) {
+        first(W) = Q;
+        last(W) = Q;
+    } else {
+        next(last(W)) = Q;
+        prev(Q) = last(W);
+        last(W) = Q;
+    }
 }
 
 void insertLastPaket(listPaket &P, adrPaket Q) {
-
+    if (first(P) == NULL) {
+        first(P) = Q;
+    } else {
+        adrPaket curr = first(P);
+        while (next(curr) != NULL) {
+            curr = next(curr);
+        }
+        next(curr) = Q;
+    }
 }
-//insert last paket
+
