@@ -10,21 +10,30 @@ int main()
     wisatawan W;
     paketWisata P;
 
-    W.nama = "tes";
-    W.umur = 18;
-    W.banyakOrang = 3;
+    W.atasNama= "tes";
+    W.jmlDewasa = 18;
+    W.jmlAnak = 3;
+
+    P.destinasi = "Bromo";
+    P.harga = 1000000;
+    P.durasiHari = 4;
+    P.durasiMalam = 3;
+
+    insertLastPaket(LP, createElmPaket(P));
+    insertLastPaket(LP, createElmPaket(P));
+    showAllPaket(LP);
 
     adrWisatawan pW = createElmWisatawan(W);
     insertLastWisatawan(LW, pW);
     //showAllWisatawan(LW);
 
-    W.nama = "tes2";
-    W.umur = 19;
-    W.banyakOrang = 100;
+    W.atasNama = "tes2";
+    W.jmlDewasa = 19;
+    W.jmlAnak = 10;
 
     //pW = createElmWisatawan(W);
     insertLastWisatawan(LW, createElmWisatawan(W));
-    showAllWisatawan(LW);
+    //showAllWisatawan(LW);
 
     return 0;
 }

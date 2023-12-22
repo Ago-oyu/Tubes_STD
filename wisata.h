@@ -8,15 +8,16 @@ using namespace std;
 #define info(P) P->info
 #define next(P) P->next
 #define prev(P) P->prev
+#define relasi(P) P->relasi
 
 typedef struct elmPaketWisata*adrPaket;
 typedef struct elmRelasi *adrRelasi;
 typedef struct elmWisatawan *adrWisatawan;
 
 struct wisatawan {
-    string nama;
-    int umur;
-    int banyakOrang;
+    string atasNama;
+    int jmlDewasa;
+    int jmlAnak;
 };
 
 struct paketWisata {

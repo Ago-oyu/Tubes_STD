@@ -14,6 +14,7 @@ adrWisatawan createElmWisatawan(wisatawan X) {
     info(Q) = X;
     next(Q) = NULL;
     prev(Q) = NULL;
+    relasi(Q) = NULL;
     return Q;
 }
 
@@ -51,7 +52,7 @@ adrWisatawan cariWisatawan(listWisatawan &W, string nama) {
     adrWisatawan found = NULL;
     adrWisatawan curr = first(W);
     while (curr != NULL && found == NULL) {
-        if (info(curr).nama == nama) {
+        if (info(curr).atasNama == nama) {
             found = curr;
         }
         curr = next(curr);
@@ -74,9 +75,9 @@ adrPaket cariPaket(listPaket &P, string destinasi) {
 void showAllWisatawan(listWisatawan W) {
     adrWisatawan curr = first(W);
     while (curr != NULL) {
-        cout<<"Nama: "<<info(curr).nama<<endl;
-        cout<<"Umur: "<<info(curr).umur<<endl;
-        cout<<"Banyak Orang: "<<info(curr).banyakOrang<<endl<<endl;
+        cout<<"Atas Nama: "<<info(curr).atasNama<<endl;
+        cout<<"Jumlah Dewasa (>11 Tahun): "<<info(curr).jmlDewasa<<endl;
+        cout<<"Jumlah Anak (0-11 Tahun): "<<info(curr).jmlAnak<<endl<<endl;
         curr = next(curr);
     }
 }
@@ -86,7 +87,7 @@ void showAllPaket(listPaket P) {
     while (curr != NULL) {
         cout<<"Destinasi: "<<info(curr).destinasi<<endl;
         cout<<"Harga: "<<info(curr).harga<<endl;
-        cout<<"Durasi: "<<info(curr).durasiHari<<" Hari "<<info(curr).durasiMalam<<" Malam"<<endl;
+        cout<<"Durasi: "<<info(curr).durasiHari<<" Hari "<<info(curr).durasiMalam<<" Malam"<<endl<<endl;
         curr = next(curr);
     }
 }
