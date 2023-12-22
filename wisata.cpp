@@ -76,7 +76,7 @@ void showAllWisatawan(listWisatawan W) {
     while (curr != NULL) {
         cout<<"Nama: "<<info(curr).nama<<endl;
         cout<<"Umur: "<<info(curr).umur<<endl;
-        cout<<"Banyak Orang: "<<info(curr).banyakOrang<<" Orang"<<endl<<endl;
+        cout<<"Banyak Orang: "<<info(curr).banyakOrang<<endl<<endl;
         curr = next(curr);
     }
 }
