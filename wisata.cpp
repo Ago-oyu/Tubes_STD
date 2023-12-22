@@ -71,7 +71,23 @@ adrPaket cariPaket(listPaket &P, string destinasi) {
     return found;
 }
 
-void showAllWisatawan(listWisatawan &W) {
-    adrWisatawan curr;
-
+void showAllWisatawan(listWisatawan W) {
+    adrWisatawan curr = first(W);
+    while (curr != NULL) {
+        cout<<"Nama: "<<info(curr).nama<<endl;
+        cout<<"Umur: "<<info(curr).umur<<endl;
+        cout<<"Banyak Orang: "<<info(curr).banyakOrang<<" Orang"<<endl<<endl;
+        curr = next(curr);
+    }
 }
+
+void showAllPaket(listPaket P) {
+    adrPaket curr = first(P);
+    while (curr != NULL) {
+        cout<<"Destinasi: "<<info(curr).destinasi<<endl;
+        cout<<"Harga: "<<info(curr).harga<<endl;
+        cout<<"Durasi: "<<info(curr).durasiHari<<" Hari "<<info(curr).durasiMalam<<" Malam"<<endl;
+        curr = next(curr);
+    }
+}
+

@@ -58,5 +58,10 @@ adrWisatawan createElmWisatawan(wisatawan X);
 adrPaket createElmPaket(paketWisata X);
 void insertLastWisatawan(listWisatawan &W, adrWisatawan Q);
 void insertLastPaket(listPaket &P, adrPaket Q);
+adrWisatawan cariWisatawan(listWisatawan &W, string nama);
+adrPaket cariPaket(listPaket &P, string destinasi);
+void showAllWisatawan(listWisatawan W);
+void showAllPaket(listPaket P);
+
 
 #endif // WISATA_H_INCLUDED
