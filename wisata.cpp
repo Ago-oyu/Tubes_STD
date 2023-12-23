@@ -119,6 +119,7 @@ void addPaket(listWisatawan &LW, listPaket LP, string atasNama,string destinasi)
     } else {
         pR = new elmRelasi;
         paket(pR) = pP;
-
+        inserLastRelasi(relasi(pW), pR);
     }
 }
+
