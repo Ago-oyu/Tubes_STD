@@ -9,6 +9,7 @@ using namespace std;
 #define next(P) P->next
 #define prev(P) P->prev
 #define relasi(P) P->relasi
+#define paket(P) P->paket
 
 typedef struct elmPaketWisata*adrPaket;
 typedef struct elmRelasi *adrRelasi;
@@ -32,9 +33,13 @@ struct elmRelasi {
     adrRelasi next;
 };
 
+struct listRelasi {
+    adrRelasi first;
+};
+
 struct elmWisatawan {
     wisatawan info;
-    adrRelasi relasi;
+    listRelasi relasi;
     adrWisatawan prev;
     adrWisatawan next;
 };
