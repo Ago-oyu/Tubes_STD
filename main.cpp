@@ -34,6 +34,5 @@ int main()
     //pW = createElmWisatawan(W);
     insertLastWisatawan(LW, createElmWisatawan(W));
     //showAllWisatawan(LW);
-
     return 0;
 }

@@ -14,7 +14,7 @@ adrWisatawan createElmWisatawan(wisatawan W) {
     info(Q) = W;
     next(Q) = NULL;
     prev(Q) = NULL;
-    relasi(Q) = NULL;
+    first(relasi(Q)) = NULL;
     return Q;
 }
 
@@ -41,6 +41,18 @@ void insertLastPaket(listPaket &LP, adrPaket Q) {
         first(LP) = Q;
     } else {
         adrPaket curr = first(LP);
+        while (next(curr) != NULL) {
+            curr = next(curr);
+        }
+        next(curr) = Q;
+    }
+}
+
+void inserLastRelasi(listRelasi &LR, adrRelasi Q){
+    if (first(LR) == NULL) {
+        first(LR) = Q;
+    } else {
+        adrRelasi curr = first(LR);
         while (next(curr) != NULL) {
             curr = next(curr);
         }
@@ -92,6 +104,21 @@ void showAllPaket(listPaket LP) {
     }
 }
 
-void addPaket(listWisatawan &W, listPaket P, string destinasi) {
+void addPaket(listWisatawan &LW, listPaket LP, string atasNama,string destinasi) {
+    adrWisatawan pW;
+    adrPaket pP;
+    adrRelasi pR;
 
+    pW = cariWisatawan(LW, atasNama);
+    pP = cariPaket(LP, destinasi);
+
+    if (pW == NULL) {
+        cout<<"warning: tidak ada wisatawan atas nama "<<atasNama<<endl<<endl;
+    } else if (pP == NULL) {
+        cout<<"warning: tidak ada paket wisata dengan destinasi "<<destinasi<<endl<<endl;
+    } else {
+        pR = new elmRelasi;
+        paket(pR) = pP;
+
+    }
 }
