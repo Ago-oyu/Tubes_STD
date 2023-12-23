@@ -53,16 +53,16 @@ struct listPaket {
     adrPaket first;
 };
 
-void createListWisatawan(listWisatawan &W);
-void createListPaket(listPaket &P);
-adrWisatawan createElmWisatawan(wisatawan X);
-adrPaket createElmPaket(paketWisata X);
-void insertLastWisatawan(listWisatawan &W, adrWisatawan Q);
-void insertLastPaket(listPaket &P, adrPaket Q);
-adrWisatawan cariWisatawan(listWisatawan &W, string nama);
-adrPaket cariPaket(listPaket &P, string destinasi);
-void showAllWisatawan(listWisatawan W);
-void showAllPaket(listPaket P);
+void createListWisatawan(listWisatawan &LW);
+void createListPaket(listPaket &LP);
+adrWisatawan createElmWisatawan(wisatawan W);
+adrPaket createElmPaket(paketWisata P);
+void insertLastWisatawan(listWisatawan &LW, adrWisatawan Q);
+void insertLastPaket(listPaket &LP, adrPaket Q);
+adrWisatawan cariWisatawan(listWisatawan &LW, string nama);
+adrPaket cariPaket(listPaket &LP, string destinasi);
+void showAllWisatawan(listWisatawan LW);
+void showAllPaket(listPaket LP);
 
 
 #endif // WISATA_H_INCLUDED

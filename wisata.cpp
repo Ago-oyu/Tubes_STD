@@ -1,46 +1,46 @@
 #include "wisata.h"
 
-void createListWisatawan(listWisatawan &W) {
-    first(W) = NULL;
-    last(W) = NULL;
+void createListWisatawan(listWisatawan &LW) {
+    first(LW) = NULL;
+    last(LW) = NULL;
 }
 
-void createListPaket(listPaket &P) {
-    first(P) = NULL;
+void createListPaket(listPaket &LP) {
+    first(LP) = NULL;
 }
 
-adrWisatawan createElmWisatawan(wisatawan X) {
+adrWisatawan createElmWisatawan(wisatawan W) {
     adrWisatawan Q = new elmWisatawan;
-    info(Q) = X;
+    info(Q) = W;
     next(Q) = NULL;
     prev(Q) = NULL;
     relasi(Q) = NULL;
     return Q;
 }
 
-adrPaket createElmPaket(paketWisata X) {
+adrPaket createElmPaket(paketWisata P) {
     adrPaket Q = new elmPaketWisata;
-    info(Q) = X;
+    info(Q) = P;
     next(Q) = NULL;
     return Q;
 }
 
-void insertLastWisatawan(listWisatawan &W, adrWisatawan Q) {
-    if (first(W) == NULL) {
-        first(W) = Q;
-        last(W) = Q;
+void insertLastWisatawan(listWisatawan &LW, adrWisatawan Q) {
+    if (first(LW) == NULL) {
+        first(LW) = Q;
+        last(LW) = Q;
     } else {
-        next(last(W)) = Q;
-        prev(Q) = last(W);
-        last(W) = Q;
+        next(last(LW)) = Q;
+        prev(Q) = last(LW);
+        last(LW) = Q;
     }
 }
 
-void insertLastPaket(listPaket &P, adrPaket Q) {
-    if (first(P) == NULL) {
-        first(P) = Q;
+void insertLastPaket(listPaket &LP, adrPaket Q) {
+    if (first(LP) == NULL) {
+        first(LP) = Q;
     } else {
-        adrPaket curr = first(P);
+        adrPaket curr = first(LP);
         while (next(curr) != NULL) {
             curr = next(curr);
         }
@@ -48,9 +48,9 @@ void insertLastPaket(listPaket &P, adrPaket Q) {
     }
 }
 
-adrWisatawan cariWisatawan(listWisatawan &W, string nama) {
+adrWisatawan cariWisatawan(listWisatawan &LW, string nama) {
     adrWisatawan found = NULL;
-    adrWisatawan curr = first(W);
+    adrWisatawan curr = first(LW);
     while (curr != NULL && found == NULL) {
         if (info(curr).atasNama == nama) {
             found = curr;
@@ -60,9 +60,9 @@ adrWisatawan cariWisatawan(listWisatawan &W, string nama) {
     return found;
 }
 
-adrPaket cariPaket(listPaket &P, string destinasi) {
+adrPaket cariPaket(listPaket &LP, string destinasi) {
     adrPaket found = NULL;
-    adrPaket curr = first(P);
+    adrPaket curr = first(LP);
     while (curr != NULL && found == NULL) {
         if (info(curr).destinasi == destinasi) {
             found = curr;
@@ -72,8 +72,8 @@ adrPaket cariPaket(listPaket &P, string destinasi) {
     return found;
 }
 
-void showAllWisatawan(listWisatawan W) {
-    adrWisatawan curr = first(W);
+void showAllWisatawan(listWisatawan LW) {
+    adrWisatawan curr = first(LW);
     while (curr != NULL) {
         cout<<"Atas Nama: "<<info(curr).atasNama<<endl;
         cout<<"Jumlah Dewasa (>11 Tahun): "<<info(curr).jmlDewasa<<endl;
@@ -82,8 +82,8 @@ void showAllWisatawan(listWisatawan W) {
     }
 }
 
-void showAllPaket(listPaket P) {
-    adrPaket curr = first(P);
+void showAllPaket(listPaket LP) {
+    adrPaket curr = first(LP);
     while (curr != NULL) {
         cout<<"Destinasi: "<<info(curr).destinasi<<endl;
         cout<<"Harga: "<<info(curr).harga<<endl;
@@ -92,3 +92,6 @@ void showAllPaket(listPaket P) {
     }
 }
 
+void addPaket(listWisatawan &W, listPaket P, string destinasi) {
+
+}
