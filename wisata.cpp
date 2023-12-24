@@ -134,7 +134,7 @@ void clearRelasi(listRelasi &LR) {
     }
 }
 
-void deleteFirstWisatawan(listWisatawan &LW, adrWisatawan Q) {
+void deleteFirstWisatawan(listWisatawan &LW, adrWisatawan &Q) {
     Q = first(LW);
     if (first(LW) == last(LW)) {
         first(LW) = next(Q);
@@ -146,6 +146,13 @@ void deleteFirstWisatawan(listWisatawan &LW, adrWisatawan Q) {
     }
 }
 
+void deleteLastWisatawan(listWisatawan &LW, adrWisatawan &Q) {
+    Q = last(LW);
+    last(LW) = prev(last(LW));
+    prev(Q) = NULL;
+    next(last(LW)) = NULL;
+}
+
 void deleteWisatawan(listWisatawan &LW, string atasNama) {
     adrWisatawan Q;
     Q = cariWisatawan(LW, atasNama);
@@ -154,7 +161,8 @@ void deleteWisatawan(listWisatawan &LW, string atasNama) {
     } else {
         clearRelasi(relasi(Q));
         if (Q == first(LW)) {
-            first(LW) = next(Q);
+            deleteFirstWisatawan(LW,Q);
+        } else if (Q == last(LW)) {
 
         }
     }
