@@ -134,14 +134,27 @@ void clearRelasi(listRelasi &LR) {
     }
 }
 
+void deleteFirstWisatawan(listWisatawan &LW, adrWisatawan Q) {
+    Q = first(LW);
+    if (first(LW) == last(LW)) {
+        first(LW) = next(Q);
+        next(Q) = NULL;
+        prev(first(LW)) = NULL;
+    } else {
+        first(LW) = NULL;
+        last(LW) = NULL;
+    }
+}
+
 void deleteWisatawan(listWisatawan &LW, string atasNama) {
     adrWisatawan Q;
     Q = cariWisatawan(LW, atasNama);
     if (Q == NULL) {
         cout<<"warning: tidak ada wisatawan atas nama "<<atasNama<<endl<<endl;
     } else {
-        adrRelasi R = first(relasi(Q));
-        while (R != NULL) {
+        clearRelasi(relasi(Q));
+        if (Q == first(LW)) {
+            first(LW) = next(Q);
 
         }
     }
