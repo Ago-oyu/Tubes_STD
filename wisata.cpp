@@ -60,11 +60,11 @@ void inserLastRelasi(listRelasi &LR, adrRelasi Q){
     }
 }
 
-adrWisatawan cariWisatawan(listWisatawan &LW, string nama) {
+adrWisatawan cariWisatawan(listWisatawan &LW, string atasNama) {
     adrWisatawan found = NULL;
     adrWisatawan curr = first(LW);
     while (curr != NULL && found == NULL) {
-        if (info(curr).atasNama == nama) {
+        if (info(curr).atasNama == atasNama) {
             found = curr;
         }
         curr = next(curr);
@@ -104,7 +104,7 @@ void showAllPaket(listPaket LP) {
     }
 }
 
-void addPaket(listWisatawan &LW, listPaket LP, string atasNama,string destinasi) {
+void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,string destinasi) {
     adrWisatawan pW;
     adrPaket pP;
     adrRelasi pR;
@@ -123,3 +123,26 @@ void addPaket(listWisatawan &LW, listPaket LP, string atasNama,string destinasi)
     }
 }
 
+void clearRelasi(listRelasi &LR) {
+    adrRelasi R = first(LR);
+    while (R != NULL) {
+        first(LR) = next(R);
+        next(R) = NULL;
+        paket(R) = NULL;
+        delete R;
+        R = first(LR);
+    }
+}
+
+void deleteWisatawan(listWisatawan &LW, string atasNama) {
+    adrWisatawan Q;
+    Q = cariWisatawan(LW, atasNama);
+    if (Q == NULL) {
+        cout<<"warning: tidak ada wisatawan atas nama "<<atasNama<<endl<<endl;
+    } else {
+        adrRelasi R = first(relasi(Q));
+        while (R != NULL) {
+
+        }
+    }
+}
