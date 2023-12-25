@@ -85,7 +85,15 @@ adrPaket cariPaket(listPaket &LP, string destinasi) {
 }
 
 adrRelasi cariRelasi(adrWisatawan W, string destinasi) {
-
+    adrRelasi found = NULL;
+    adrRelasi curr = first(relasi(W));
+    while (curr != NULL && found == NULL) {
+        if (info(paket(curr)).destinasi == destinasi) {
+            found = curr;
+        }
+        curr = next(curr);
+    }
+    return found;
 }
 
 void showAllWisatawan(listWisatawan LW) {

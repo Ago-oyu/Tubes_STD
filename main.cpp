@@ -18,8 +18,8 @@ int main()
     P.harga = 1000000;
     P.durasiHari = 4;
     P.durasiMalam = 3;
-
     insertLastPaket(LP, createElmPaket(P));
+    P.destinasi = "Malang";
     insertLastPaket(LP, createElmPaket(P));
     showAllPaket(LP);
 
@@ -36,6 +36,7 @@ int main()
     showAllWisatawanWithRelation(LW);
 
     setPaketForWisatawan(LW, LP, "tes2", "Bromo");
+    setPaketForWisatawan(LW, LP, "tes2", "Malang");
     showAllWisatawanWithRelation(LW);
     return 0;
 }
