@@ -153,6 +153,14 @@ void deleteLastWisatawan(listWisatawan &LW, adrWisatawan &Q) {
     next(last(LW)) = NULL;
 }
 
+void deleteAfterWisatawan(adrWisatawan prec, adrWisatawan &Q) {
+    Q = next(prec);
+    next(prec) = next(Q);
+    prev(next(Q)) = prec;
+    prev(Q) = NULL;
+    next(Q) = NULL;
+}
+
 void deleteWisatawan(listWisatawan &LW, string atasNama) {
     adrWisatawan Q;
     Q = cariWisatawan(LW, atasNama);
@@ -163,7 +171,10 @@ void deleteWisatawan(listWisatawan &LW, string atasNama) {
         if (Q == first(LW)) {
             deleteFirstWisatawan(LW,Q);
         } else if (Q == last(LW)) {
-
+            deleteLastWisatawan(LW, Q);
+        } else {
+            adrWisatawan prec = prev(Q);
+            deleteAfterWisatawan(prec, Q);
         }
     }
 }
