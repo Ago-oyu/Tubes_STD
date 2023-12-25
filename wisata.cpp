@@ -165,6 +165,26 @@ void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,strin
     }
 }
 
+void deleteFirstRelasi(adrWisatawan &W, adrRelasi &R) {
+    if (first(relasi(W)) == NULL) {
+        cout<<"List Relasi Kosong"<<endl;
+    } else {
+        R = first(relasi(W));
+        first(relasi(W)) = next(R);
+        next(R) = NULL;
+    }
+}
+
+void deleteLastRelasi(adrWisatawan &W, adrRelasi &R) {
+    adrRelasi Q = first(relasi(W));
+    R = next(Q);
+    while (next(R) != NULL) {
+        Q = R;
+        R = next(R);
+    }
+    next(Q) = NULL;
+}
+
 void clearRelasi(listRelasi &LR) {
     adrRelasi R = first(LR);
     while (R != NULL) {
