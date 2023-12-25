@@ -185,6 +185,12 @@ void deleteLastRelasi(adrWisatawan &W, adrRelasi &R) {
     next(Q) = NULL;
 }
 
+void deleteAfterRelasi(adrRelasi prec, adrRelasi &R) {
+    R = next(prec);
+    next(prec) = next(R);
+    next(R) = NULL;
+}
+
 void clearRelasi(listRelasi &LR) {
     adrRelasi R = first(LR);
     while (R != NULL) {
