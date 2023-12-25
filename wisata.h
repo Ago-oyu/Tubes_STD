@@ -68,6 +68,7 @@ adrWisatawan cariWisatawan(listWisatawan &LW, string nama);
 adrPaket cariPaket(listPaket &LP, string destinasi);
 void showAllWisatawan(listWisatawan LW);
 void showAllPaket(listPaket LP);
-
+void showAllWisatawanWithRelation(listWisatawan LW);
+void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,string destinasi);
 
 #endif // WISATA_H_INCLUDED

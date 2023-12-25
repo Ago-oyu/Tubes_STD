@@ -84,23 +84,56 @@ adrPaket cariPaket(listPaket &LP, string destinasi) {
     return found;
 }
 
+adrRelasi cariRelasi(adrWisatawan W, string destinasi) {
+
+}
+
 void showAllWisatawan(listWisatawan LW) {
     adrWisatawan curr = first(LW);
+    int i = 1;
     while (curr != NULL) {
-        cout<<"Atas Nama: "<<info(curr).atasNama<<endl;
-        cout<<"Jumlah Dewasa (>11 Tahun): "<<info(curr).jmlDewasa<<endl;
-        cout<<"Jumlah Anak (0-11 Tahun): "<<info(curr).jmlAnak<<endl<<endl;
+        cout<<i<<". Atas Nama\t\t\t: "<<info(curr).atasNama<<endl;
+        cout<<"   Jumlah Dewasa (>11 Tahun)\t: "<<info(curr).jmlDewasa<<endl;
+        cout<<"   Jumlah Anak (0-11 Tahun)\t: "<<info(curr).jmlAnak<<endl<<endl;
         curr = next(curr);
+        i++;
     }
 }
 
 void showAllPaket(listPaket LP) {
     adrPaket curr = first(LP);
+    int i = 1;
     while (curr != NULL) {
-        cout<<"Destinasi: "<<info(curr).destinasi<<endl;
-        cout<<"Harga: "<<info(curr).harga<<endl;
-        cout<<"Durasi: "<<info(curr).durasiHari<<" Hari "<<info(curr).durasiMalam<<" Malam"<<endl<<endl;
+        cout<<i<<". Destinasi\t: "<<info(curr).destinasi<<endl;
+        cout<<"   Harga\t: "<<info(curr).harga<<endl;
+        cout<<"   Durasi\t: "<<info(curr).durasiHari<<" Hari "<<info(curr).durasiMalam<<" Malam"<<endl<<endl;
         curr = next(curr);
+        i++;
+    }
+}
+
+void showAllWisatawanWithRelation(listWisatawan LW) {
+    adrWisatawan curr = first(LW);
+    int i = 1;
+    while (curr != NULL) {
+        cout<<i<<". Atas Nama\t\t\t: "<<info(curr).atasNama<<endl;
+        cout<<"   Jumlah Dewasa (>11 Tahun)\t: "<<info(curr).jmlDewasa<<endl;
+        cout<<"   Jumlah Anak (0-11 Tahun)\t: "<<info(curr).jmlAnak<<endl;
+        cout<<"   Paket Wisata yang dipilih\t: ";
+        adrRelasi R = first(relasi(curr));
+        if (R == NULL) {
+            cout<<"Kosong"<<endl<<endl;
+        } else {
+            cout<<endl;
+            char x = 'a';
+            while (R != NULL) {
+                cout<<"\t"<<x<<". "<<info(paket(R)).destinasi<<endl;
+                R = next(R);
+                x++;
+            }
+        }
+        curr = next(curr);
+        i++;
     }
 }
 
@@ -119,6 +152,7 @@ void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,strin
     } else {
         pR = new elmRelasi;
         paket(pR) = pP;
+        next(pR) = NULL;
         inserLastRelasi(relasi(pW), pR);
     }
 }

@@ -33,6 +33,9 @@ int main()
 
     //pW = createElmWisatawan(W);
     insertLastWisatawan(LW, createElmWisatawan(W));
-    //showAllWisatawan(LW);
+    showAllWisatawanWithRelation(LW);
+
+    setPaketForWisatawan(LW, LP, "tes2", "Bromo");
+    showAllWisatawanWithRelation(LW);
     return 0;
 }
