@@ -198,6 +198,7 @@ void deleteRelasi(listWisatawan &LW, string atasNama, string destinasi) {
         adrRelasi Q;
         Q = cariRelasi(W, destinasi);
         if (Q != NULL) {
+            paket(Q) = NULL;
             if (Q == first(relasi(W))) {
                 deleteFirstRelasi(W, Q);
             } else if (next(Q) == NULL) {
