@@ -185,10 +185,33 @@ void deleteLastRelasi(adrWisatawan &W, adrRelasi &R) {
     next(Q) = NULL;
 }
 
-void deleteAfterRelasi(adrRelasi prec, adrRelasi &R) {
+void deleteAfterRelasi(adrRelasi &prec, adrRelasi &R) {
     R = next(prec);
     next(prec) = next(R);
     next(R) = NULL;
+}
+
+void deleteRelasi(listWisatawan &LW, string atasNama, string destinasi) {
+    adrWisatawan W;
+    W = cariWisatawan(LW, atasNama);
+    if (W != NULL) {
+        adrRelasi Q;
+        Q = cariRelasi(W, destinasi);
+        if (Q != NULL) {
+            if (Q == first(relasi(W))) {
+                deleteFirstRelasi(W, Q);
+            } else if (next(Q) == NULL) {
+                deleteLastRelasi(W, Q);
+            } else {
+                adrRelasi prec = first(relasi(W));
+                while (next(prec) != Q) {
+                    prec = next(prec);
+                }
+                deleteAfterRelasi(prec, Q);
+            }
+        }
+
+    }
 }
 
 void clearRelasi(listRelasi &LR) {
