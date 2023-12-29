@@ -70,5 +70,6 @@ void showAllWisatawan(listWisatawan LW);
 void showAllPaket(listPaket LP);
 void showAllWisatawanWithRelation(listWisatawan LW);
 void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,string destinasi);
+void menu();
 
 #endif // WISATA_H_INCLUDED

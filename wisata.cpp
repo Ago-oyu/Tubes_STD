@@ -100,9 +100,9 @@ void showAllWisatawan(listWisatawan LW) {
     adrWisatawan curr = first(LW);
     int i = 1;
     while (curr != NULL) {
-        cout<<i<<". Atas Nama\t\t\t: "<<info(curr).atasNama<<endl;
-        cout<<"   Jumlah Dewasa (>11 Tahun)\t: "<<info(curr).jmlDewasa<<endl;
-        cout<<"   Jumlah Anak (0-11 Tahun)\t: "<<info(curr).jmlAnak<<endl<<endl;
+        cout<<i<<". Atas Nama\t: "<<info(curr).atasNama<<endl;
+        cout<<"   Jumlah Dewasa\t: "<<info(curr).jmlDewasa<<endl;
+        cout<<"   Jumlah Anak\t: "<<info(curr).jmlAnak<<endl<<endl;
         curr = next(curr);
         i++;
     }
@@ -269,4 +269,42 @@ void deleteWisatawan(listWisatawan &LW, string atasNama) {
             deleteAfterWisatawan(prec, Q);
         }
     }
+}
+
+void menu() {
+    int pilihan;
+    cout<<"1. Insert Data"<<endl;
+    cout<<"2. Show Data"<<endl;
+    cout<<"3. Find Data"<<endl;
+    cout<<"4. Delete Data"<<endl;
+    cout<<"5. Connect Data"<<endl;
+    cout<<"0. Exit Program"<<endl;
+    cout<<"Pilih Menu: ";cin>>pilihan;
+
+    switch(pilihan){
+        case 1:
+            pilihan = NULL;
+            cout<<"1. Insert Wisatawan"<<endl;
+            cout<<"2. Insert Paket Wisata"<<endl;
+            cout<<"Pilih Menu: ";cin>>pilihan;
+            switch(pilihan) {
+                case 1:
+
+                    break;
+                case 2:
+                    break;
+            }
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 0:
+            break;
+    }
+
 }
