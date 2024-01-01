@@ -1,3 +1,4 @@
+#include<stdlib.h>
 #include <iostream>
 #include "wisata.h"
 
@@ -10,6 +11,7 @@ int main()
     wisatawan W;
     adrWisatawan pW;
     paketWisata P;
+    adrPaket pP;
 
     int pilihan;
 
@@ -24,20 +26,35 @@ int main()
 
     switch(pilihan){
         case 1:
+            system("cls");
             cout<<"1. Insert Wisatawan"<<endl;
             cout<<"2. Insert Paket Wisata"<<endl;
             cout<<"Pilih Menu: ";cin>>pilihan;
             switch(pilihan) {
                 case 1:
-                    while (W.atasNama != "#") {
-                        cout<<"Atas Nama: ";cin>>W.atasNama;
+                    system("cls");
+                    cout<<"Atas Nama: ";cin>>W.atasNama;
+                    while (W.atasNama != "#"){
                         cout<<"Jumlah Dewasa: ";cin>>W.jmlDewasa;
                         cout<<"Jumlah Anak(<12 Tahun): ";cin>>W.jmlAnak;
+                        cout<<endl;
                         pW = createElmWisatawan(W);
                         insertLastWisatawan(LW, pW);
+                        cout<<"Atas Nama: ";cin>>W.atasNama;
                     }
                     break;
                 case 2:
+                    system("cls");
+                    cout<<"Destinasi: ";cin>>P.destinasi;
+                    while (P.destinasi != "#") {
+                        cout<<"Harga: ";cin>>P.harga;
+                        cout<<"Durasi(Hari): ";cin>>P.durasiHari;
+                        cout<<"Durasi(Malamm): ";cin>>P.durasiMalam;
+                        cout<<endl;
+                        pP = createElmPaket(P);
+                        insertLastPaket(LP, pP);
+                        cout<<"Destinasi: ";cin>>P.destinasi;
+                    }
                     break;
             }
             break;
