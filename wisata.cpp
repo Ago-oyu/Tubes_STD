@@ -100,8 +100,8 @@ void showAllWisatawan(listWisatawan LW) {
     adrWisatawan curr = first(LW);
     int i = 1;
     while (curr != NULL) {
-        cout<<i<<". Atas Nama\t: "<<info(curr).atasNama<<endl;
-        cout<<"   Jumlah Dewasa\t: "<<info(curr).jmlDewasa<<endl;
+        cout<<i<<") Atas Nama\t: "<<info(curr).atasNama<<endl;
+        cout<<"   Jumlah Dewasa: "<<info(curr).jmlDewasa<<endl;
         cout<<"   Jumlah Anak\t: "<<info(curr).jmlAnak<<endl<<endl;
         curr = next(curr);
         i++;
