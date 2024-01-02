@@ -271,6 +271,16 @@ void deleteWisatawan(listWisatawan &LW, string atasNama) {
     }
 }
 
+void deleteFirstPaket(listPaket &LP, adrPaket Q) {
+    if (first(LP) == NULL) {
+        cout<<"List Paket Kosong"<<endl;
+    } else {
+        Q = first(LP);
+        first(LP) = next(Q);
+        next(Q) = NULL;
+    }
+}
+
 void deletePaket(listPaket &LP, listWisatawan &LW, string destinasi) {
     adrPaket Q;
     Q = cariPaket(LP, destinasi);
@@ -281,6 +291,13 @@ void deletePaket(listPaket &LP, listWisatawan &LW, string destinasi) {
         while (R != NULL) {
             deleteRelasi(LW, info(R).atasNama, destinasi);
             R = next(R);
+        }
+        if (Q == first(LP)) {
+
+        } else if (next(Q) == NULL) {
+
+        } else {
+
         }
     }
 }
