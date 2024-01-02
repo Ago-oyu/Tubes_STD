@@ -145,6 +145,12 @@ void showAllWisatawanWithRelation(listWisatawan LW) {
     }
 }
 
+void printWisatawan(adrWisatawan Q) {
+    cout<<"   Atas Nama\t: "<<info(Q).atasNama<<endl;
+    cout<<"   Jumlah Dewasa: "<<info(Q).jmlDewasa<<endl;
+    cout<<"   Jumlah Anak\t: "<<info(Q).jmlAnak<<endl<<endl;
+}
+
 void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,string destinasi) {
     adrWisatawan pW;
     adrPaket pP;

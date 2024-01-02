@@ -71,6 +71,7 @@ adrRelasi cariRelasi(adrWisatawan W, string destinasi);
 void showAllWisatawan(listWisatawan LW);
 void showAllPaket(listPaket LP);
 void showAllWisatawanWithRelation(listWisatawan LW);
+void printWisatawan(adrWisatawan Q);
 void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,string destinasi);
 void deleteFirstRelasi(adrWisatawan &W, adrRelasi &R);
 void deleteLastRelasi(adrWisatawan &W, adrRelasi &R);
@@ -81,5 +82,9 @@ void deleteFirstWisatawan(listWisatawan &LW, adrWisatawan &Q);
 void deleteLastWisatawan(listWisatawan &LW, adrWisatawan &Q);
 void deleteAfterWisatawan(adrWisatawan prec, adrWisatawan &Q);
 void deleteWisatawan(listWisatawan &LW, string atasNama);
+void deleteFirstPaket(listPaket &LP, adrPaket &Q);
+void deleteLastPaket(listPaket &LP, adrPaket &Q);
+void deleteAfterPaket(listPaket &LP, adrPaket &prec, adrPaket &Q);
+void deletePaket(listPaket &LP, listWisatawan &LW, string destinasi);
 
 #endif // WISATA_H_INCLUDED
