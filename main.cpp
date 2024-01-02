@@ -12,14 +12,14 @@ int main()
     adrWisatawan pW;
     paketWisata P;
     adrPaket pP;
-
+    string atasNama, destinasi;
     int pilihan;
 
     do {
         cout<<"1. Insert Data"<<endl;
         cout<<"2. Show Data"<<endl;
-        cout<<"3. Find Data"<<endl;
-        cout<<"4. Delete Data"<<endl;
+        cout<<"3. Cari Data"<<endl;
+        cout<<"4. Hapus Data"<<endl;
         cout<<"5. Connect Data"<<endl;
         cout<<"0. Exit Program"<<endl;
         cout<<"Pilih Menu: ";cin>>pilihan;
@@ -59,49 +59,68 @@ int main()
             }
             break;
         case 2:
-            showAllWisatawan(LW);
-//            cout<<"1. Data Wisatawan"<<endl;
-//            cout<<"Pilih Menu: ";cin>>pilihan;
-
+            system("cls");
+            cout<<"1. Data Wisatawan"<<endl;
+            cout<<"2. Data Paket Wisata"<<endl;
+            cout<<"3. Data Wisatawan dan Paketnya"<<endl;
+            cout<<"Pilih Menu: ";cin>>pilihan;
+            switch(pilihan) {
+                case 1:
+                    showAllWisatawan(LW);
+                    break;
+                case 2:
+                    showAllPaket(LP);
+                    break;
+                case 3:
+                    showAllWisatawanWithRelation(LW);
+                    break;
+            }
             break;
         case 3:
+            system("cls");
+            cout<<"1. Cari Data Wisatawan"<<endl;
+            cout<<"2. Cari Data Paket Wisata"<<endl;
+            cout<<"3. Cari Data Paket pada Wisatawan"<<endl;
+            cout<<"Pilih Menu: ";cin>>pilihan;
+            switch(pilihan) {
+                case 1:
+
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
             break;
         case 4:
+            system("cls");
+            cout<<"1. Hapus Data Wisatawan"<<endl;
+            cout<<"2. Hapus Data Paket Wisata"<<endl;
+            cout<<"3. Hapus Data Paket pada Wisatawan"<<endl;
+            cout<<"Pilih Menu: ";cin>>pilihan;
+            switch(pilihan) {
+                case 1:
+                    cout<<"WIsatawan yang Ingin Dihapus: ";cin>>atasNama;
+                    deleteWisatawan(LW, atasNama);
+                    break;
+                case 2:
+                    cout<<"Paket Wisata yang Ingin Dihapus: ";cin>>destinasi;
+
+                    break;
+                case 3:
+                    cout<<"Paket Wisata: ";cin>>destinasi;
+                    cout<<"Pada Wisatawan: ";cin>>atasNama;
+                    deleteRelasi(LW, atasNama, destinasi);
+                    break;
+            }
             break;
         case 5:
+            system("cls");
             break;
         case 0:
+
             break;
     }
     } while (pilihan != 0);
-
-//    W.atasNama= "tes";
-//    W.jmlDewasa = 18;
-//    W.jmlAnak = 3;
-//
-//    P.destinasi = "Bromo";
-//    P.harga = 1000000;
-//    P.durasiHari = 4;
-//    P.durasiMalam = 3;
-//    insertLastPaket(LP, createElmPaket(P));
-//    P.destinasi = "Malang";
-//    insertLastPaket(LP, createElmPaket(P));
-//    showAllPaket(LP);
-//
-//    adrWisatawan pW = createElmWisatawan(W);
-//    insertLastWisatawan(LW, pW);
-//    //showAllWisatawan(LW);
-//
-//    W.atasNama = "tes2";
-//    W.jmlDewasa = 19;
-//    W.jmlAnak = 10;
-//
-//    //pW = createElmWisatawan(W);
-//    insertLastWisatawan(LW, createElmWisatawan(W));
-//    showAllWisatawanWithRelation(LW);
-//
-//    setPaketForWisatawan(LW, LP, "tes2", "Bromo");
-//    setPaketForWisatawan(LW, LP, "tes2", "Malang");
-//    showAllWisatawanWithRelation(LW);
     return 0;
 }
