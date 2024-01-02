@@ -124,9 +124,9 @@ void showAllWisatawanWithRelation(listWisatawan LW) {
     adrWisatawan curr = first(LW);
     int i = 1;
     while (curr != NULL) {
-        cout<<i<<". Atas Nama\t\t\t: "<<info(curr).atasNama<<endl;
-        cout<<"   Jumlah Dewasa (>11 Tahun)\t: "<<info(curr).jmlDewasa<<endl;
-        cout<<"   Jumlah Anak (0-11 Tahun)\t: "<<info(curr).jmlAnak<<endl;
+        cout<<i<<". Atas Nama\t: "<<info(curr).atasNama<<endl;
+        cout<<"   Jumlah Dewasa\t: "<<info(curr).jmlDewasa<<endl;
+        cout<<"   Jumlah Anak\t: "<<info(curr).jmlAnak<<endl;
         cout<<"   Paket Wisata yang dipilih\t: ";
         adrRelasi R = first(relasi(curr));
         if (R == NULL) {
@@ -155,6 +155,25 @@ void printPaket(adrPaket Q) {
     cout<<"   Destinasi\t: "<<info(Q).destinasi<<endl;
     cout<<"   Harga\t: "<<info(Q).harga<<endl;
     cout<<"   Durasi\t: "<<info(Q).durasiHari<<" Hari "<<info(Q).durasiMalam<<" Malam"<<endl<<endl;
+}
+
+void printWisatawanWithRelation(adrWisatawan Q) {
+    cout<<"   Atas Nama\t: "<<info(Q).atasNama<<endl;
+    cout<<"   Jumlah Dewasa\t: "<<info(Q).jmlDewasa<<endl;
+    cout<<"   Jumlah Anak\t: "<<info(Q).jmlAnak<<endl;
+    cout<<"   Paket Wisata yang dipilih\t: ";
+    adrRelasi R = first(relasi(Q));
+    if (R == NULL) {
+        cout<<"Kosong"<<endl<<endl;
+    } else {
+        cout<<endl;
+        char x = 'a';
+        while (R != NULL) {
+            cout<<"\t"<<x<<". "<<info(paket(R)).destinasi<<endl;
+            R = next(R);
+            x++;
+        }
+    }
 }
 
 void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,string destinasi) {
