@@ -12,6 +12,7 @@ int main()
     adrWisatawan pW;
     paketWisata P;
     adrPaket pP;
+    adrRelasi pR;
     string atasNama, destinasi;
     int pilihan;
 
@@ -84,11 +85,30 @@ int main()
             cout<<"Pilih Menu: ";cin>>pilihan;
             switch(pilihan) {
                 case 1:
+                    cout<<"Wisatawan yang Ingin Dicari: ";cin>>atasNama;
+                    pW = cariWisatawan(LW, atasNama);
+                    if (pW != NULL) {
+                        printWisatawan(pW);
+                    }
 
                     break;
                 case 2:
+                    cout<<"Paket yang Ingin Dicari: ";cin>>destinasi;
+                    pP = cariPaket(LP, destinasi);
+                    if (pP == NULL) {
+                        printPaket(pP);
+                    }
                     break;
                 case 3:
+                    cout<<"Wisatawan: ";cin>>atasNama;
+                    cout<<"Paket Wisata: ";cin>>destinasi;
+                    pW = cariWisatawan(LW, atasNama);
+                    if (pW != NULL) {
+                        pR = cariRelasi(pW, destinasi);
+                        if (pR != NULL) {
+                            printWisatawanWithRelation(pW);
+                        }
+                    }
                     break;
             }
             break;
@@ -105,7 +125,7 @@ int main()
                     break;
                 case 2:
                     cout<<"Paket Wisata yang Ingin Dihapus: ";cin>>destinasi;
-
+                    deletePaket(LP, LW, destinasi);
                     break;
                 case 3:
                     cout<<"Paket Wisata: ";cin>>destinasi;
@@ -116,6 +136,7 @@ int main()
             break;
         case 5:
             system("cls");
+            setPaketForWisatawan(LW, LP, atasNama, destinasi);
             break;
         case 0:
 
