@@ -309,11 +309,15 @@ void deletePaket(listPaket &LP, listWisatawan &LW, string destinasi) {
             R = next(R);
         }
         if (Q == first(LP)) {
-
+            deleteFirstPaket(LP, Q);
         } else if (next(Q) == NULL) {
-
+            deleteLastPaket(LP, Q);
         } else {
-
+            adrPaket prec = first(LP);
+            while (next(prec) != Q) {
+                prec = next(prec);
+            }
+            deleteAfterPaket(LP, prec, Q);
         }
     }
 }
