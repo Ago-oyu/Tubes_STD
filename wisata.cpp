@@ -291,6 +291,12 @@ void deleteLastPaket(listPaket &LP, adrPaket &Q) {
     next(R) = NULL;
 }
 
+void deleteAfterPaket(listPaket &LP, adrPaket &prec, adrPaket &Q) {
+    Q = next(prec);
+    next(prec) = next(Q);
+    next(Q) = NULL;
+}
+
 void deletePaket(listPaket &LP, listWisatawan &LW, string destinasi) {
     adrPaket Q;
     Q = cariPaket(LP, destinasi);
