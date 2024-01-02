@@ -271,7 +271,7 @@ void deleteWisatawan(listWisatawan &LW, string atasNama) {
     }
 }
 
-void deleteFirstPaket(listPaket &LP, adrPaket Q) {
+void deleteFirstPaket(listPaket &LP, adrPaket &Q) {
     if (first(LP) == NULL) {
         cout<<"List Paket Kosong"<<endl;
     } else {
@@ -279,6 +279,16 @@ void deleteFirstPaket(listPaket &LP, adrPaket Q) {
         first(LP) = next(Q);
         next(Q) = NULL;
     }
+}
+
+void deleteLastPaket(listPaket &LP, adrPaket &Q) {
+    adrPaket R = first(LP);
+    Q = next(R);
+    while (next(Q) != NULL) {
+        R = Q;
+        Q = next(Q);
+    }
+    next(R) = NULL;
 }
 
 void deletePaket(listPaket &LP, listWisatawan &LW, string destinasi) {
