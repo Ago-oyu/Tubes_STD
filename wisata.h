@@ -73,6 +73,7 @@ void showAllPaket(listPaket LP);
 void showAllWisatawanWithRelation(listWisatawan LW);
 void printWisatawan(adrWisatawan Q);
 void printPaket(adrPaket Q);
+void printWisatawanWithRelation(adrWisatawan Q);
 void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,string destinasi);
 void deleteFirstRelasi(adrWisatawan &W, adrRelasi &R);
 void deleteLastRelasi(adrWisatawan &W, adrRelasi &R);
