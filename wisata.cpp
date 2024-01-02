@@ -151,6 +151,12 @@ void printWisatawan(adrWisatawan Q) {
     cout<<"   Jumlah Anak\t: "<<info(Q).jmlAnak<<endl<<endl;
 }
 
+void printPaket(adrPaket Q) {
+    cout<<"   Destinasi\t: "<<info(Q).destinasi<<endl;
+    cout<<"   Harga\t: "<<info(Q).harga<<endl;
+    cout<<"   Durasi\t: "<<info(Q).durasiHari<<" Hari "<<info(Q).durasiMalam<<" Malam"<<endl<<endl;
+}
+
 void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,string destinasi) {
     adrWisatawan pW;
     adrPaket pP;

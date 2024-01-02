@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1704191412 source:d:\#kuliah\tel-u\semester 3\struktur data\tubes_std\main.cpp
+1704196533 source:d:\#kuliah\tel-u\semester 3\struktur data\tubes_std\main.cpp
 	<stdlib.h>
 	<iostream>
 	"wisata.h"
 
-1704191412 source:d:\#kuliah\tel-u\semester 3\struktur data\tubes_std\wisata.cpp
+1704196551 source:d:\#kuliah\tel-u\semester 3\struktur data\tubes_std\wisata.cpp
 	"wisata.h"
 
-1704191538 d:\#kuliah\tel-u\semester 3\struktur data\tubes_std\wisata.h
+1704196589 d:\#kuliah\tel-u\semester 3\struktur data\tubes_std\wisata.h
 	<iostream>
 
