@@ -270,3 +270,17 @@ void deleteWisatawan(listWisatawan &LW, string atasNama) {
         }
     }
 }
+
+void deletePaket(listPaket &LP, listWisatawan &LW, string destinasi) {
+    adrPaket Q;
+    Q = cariPaket(LP, destinasi);
+    if (Q == NULL) {
+        cout<<"warning: tidak ada paket dengan destinasi "<<destinasi<<endl<<endl;
+    } else {
+        adrWisatawan R = first(LW);
+        while (R != NULL) {
+            deleteRelasi(LW, info(R).atasNama, destinasi);
+            R = next(R);
+        }
+    }
+}

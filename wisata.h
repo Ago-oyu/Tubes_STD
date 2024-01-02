@@ -64,12 +64,22 @@ adrWisatawan createElmWisatawan(wisatawan W);
 adrPaket createElmPaket(paketWisata P);
 void insertLastWisatawan(listWisatawan &LW, adrWisatawan Q);
 void insertLastPaket(listPaket &LP, adrPaket Q);
+void inserLastRelasi(listRelasi &LR, adrRelasi Q);
 adrWisatawan cariWisatawan(listWisatawan &LW, string nama);
 adrPaket cariPaket(listPaket &LP, string destinasi);
+adrRelasi cariRelasi(adrWisatawan W, string destinasi);
 void showAllWisatawan(listWisatawan LW);
 void showAllPaket(listPaket LP);
 void showAllWisatawanWithRelation(listWisatawan LW);
 void setPaketForWisatawan(listWisatawan &LW, listPaket LP, string atasNama,string destinasi);
-void menu();
+void deleteFirstRelasi(adrWisatawan &W, adrRelasi &R);
+void deleteLastRelasi(adrWisatawan &W, adrRelasi &R);
+void deleteAfterRelasi(adrRelasi &prec, adrRelasi &R);
+void deleteRelasi(listWisatawan &LW, string atasNama, string destinasi);
+void clearRelasi(listRelasi &LR);
+void deleteFirstWisatawan(listWisatawan &LW, adrWisatawan &Q);
+void deleteLastWisatawan(listWisatawan &LW, adrWisatawan &Q);
+void deleteAfterWisatawan(adrWisatawan prec, adrWisatawan &Q);
+void deleteWisatawan(listWisatawan &LW, string atasNama);
 
 #endif // WISATA_H_INCLUDED
