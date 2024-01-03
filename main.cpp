@@ -136,6 +136,8 @@ int main()
             break;
         case 5:
             system("cls");
+            cout<<"Connect Wisatawan Atas Nama: ";cin>>atasNama;
+            cout<<"Dengan Paket Wisata: ";cin>>destinasi;
             setPaketForWisatawan(LW, LP, atasNama, destinasi);
             break;
         case 0:
