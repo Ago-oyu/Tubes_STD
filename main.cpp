@@ -42,6 +42,7 @@ int main()
                         insertLastWisatawan(LW, pW);
                         cout<<"\nAtas Nama: ";cin>>W.atasNama;
                     }
+                    cout<<endl;
                     break;
                 case 2:
                     cout<<"\nDestinasi: ";cin>>P.destinasi;
@@ -53,6 +54,7 @@ int main()
                         insertLastPaket(LP, pP);
                         cout<<"\nDestinasi: ";cin>>P.destinasi;
                     }
+                    cout<<endl;
                     break;
             }
             break;
@@ -60,16 +62,24 @@ int main()
             cout<<"\n(1) Data Wisatawan"<<endl;
             cout<<"(2) Data Paket Wisata"<<endl;
             cout<<"(3) Data Wisatawan dan Paketnya"<<endl;
+            cout<<"(4) Paket Wisata Paling Diminati"<<endl;
             cout<<"Pilih Menu: ";cin>>pilihan;cout<<endl;
             switch(pilihan) {
                 case 1:
-                    showAllWisatawan(LW);
+                    if (first(LW) == NULL) {
+                        cout<<"NOTE: List Wisatawan Kosong"<<endl<<endl;
+                    } else {
+                        showAllWisatawan(LW);
+                    }
                     break;
                 case 2:
                     showAllPaket(LP);
                     break;
                 case 3:
                     showAllWisatawanWithRelation(LW);
+                    break;
+                case 4:
+                    showFavoritPaket(LW, LP);
                     break;
             }
             break;
@@ -84,7 +94,7 @@ int main()
                     pW = cariWisatawan(LW, atasNama);
                     if (pW != NULL) {
                         printWisatawan(pW);
-                        cout<<"SUKSES: Data ditemukan"<<endl<<endl;
+                        cout<<"NOTE: Data berhasil ditemukan"<<endl<<endl;
                     } else {
                         cout<<"NOTE: Data wisatawan tidak ditemukan"<<endl<<endl;
                     }
@@ -92,9 +102,9 @@ int main()
                 case 2:
                     cout<<"\nPaket yang Ingin Dicari: ";cin>>destinasi;
                     pP = cariPaket(LP, destinasi);
-                    if (pP == NULL) {
+                    if (pP != NULL) {
                         printPaket(pP);
-                        cout<<"SUKSES: Data ditemukan"<<endl<<endl;
+                        cout<<"NOTE: Data berhasil ditemukan"<<endl<<endl;
                     } else {
                         cout<<"NOTE: Data paket wisata tidak ditemukan"<<endl<<endl;
                     }
@@ -107,7 +117,7 @@ int main()
                         pR = cariRelasi(pW, destinasi);
                         if (pR != NULL) {
                             printWisatawanWithRelation(pW);
-                            cout<<"SUKSES: Data ditemukan"<<endl<<endl;
+                            cout<<"NOTE: Data berhasil ditemukan"<<endl<<endl;
                         } else {
                             cout<<"NOTE: Wisatawan tidak memilih paket "<<destinasi<<endl<<endl;
                         }
@@ -121,10 +131,10 @@ int main()
             cout<<"\n(1) Hapus Data Wisatawan"<<endl;
             cout<<"(2) Hapus Data Paket Wisata"<<endl;
             cout<<"(3) Hapus Data Paket pada Wisatawan"<<endl;
-            cout<<"Pilih Menu: ";cin>>pilihan;
+            cout<<"Pilih Menu: ";cin>>pilihan;cout<<endl;
             switch(pilihan) {
                 case 1:
-                    cout<<"WIsatawan yang Ingin Dihapus: ";cin>>atasNama;
+                    cout<<"Wisatawan yang Ingin Dihapus: ";cin>>atasNama;
                     deleteWisatawan(LW, atasNama);
                     cout<<endl;
                     break;
@@ -149,8 +159,9 @@ int main()
                     setPaketForWisatawan(LW, LP, atasNama, destinasi);
                     cout<<"Dengan Paket Wisata: ";cin>>destinasi;
                 } while (destinasi != "#");
-                cout<<"Connect Wisatawan Atas Nama: ";cin>>atasNama;
+                cout<<"\nConnect Wisatawan Atas Nama: ";cin>>atasNama;
             } while (atasNama != "#");
+            cout<<endl;
             break;
         case 0:
             break;
