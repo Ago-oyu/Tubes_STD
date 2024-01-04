@@ -84,7 +84,10 @@ Danau_Toba
 5. Show data wisatawan dan paketnya
 
 =====================================================
-tmplr
+6. Show Favorit
 
-mini
-speed
+Gunung_Bromo = 9
+Pulau_Komodo = 9
+Danau_Toba = 8
+Pantai_Kuta = 9
+Taman_Nasional_Lorentz = 17
