@@ -1,4 +1,3 @@
-#include<stdlib.h>
 #include <iostream>
 #include "wisata.h"
 
@@ -6,8 +5,6 @@ int main()
 {
     listPaket LP;
     listWisatawan LW;
-    createListPaket(LP);
-    createListWisatawan(LW);
     wisatawan W;
     adrWisatawan pW;
     paketWisata P;
@@ -16,55 +13,54 @@ int main()
     string atasNama, destinasi;
     int pilihan;
 
+    createListPaket(LP);
+    createListWisatawan(LW);
+
+
+    cout<<"========== SISTEM DATA PERJALANAN WISATA =========="<<endl;
     do {
-        cout<<"1. Insert Data"<<endl;
-        cout<<"2. Show Data"<<endl;
-        cout<<"3. Cari Data"<<endl;
-        cout<<"4. Hapus Data"<<endl;
-        cout<<"5. Connect Data"<<endl;
-        cout<<"0. Exit Program"<<endl;
+        cout<<"(1) Insert Data"<<endl;
+        cout<<"(2) Show Data"<<endl;
+        cout<<"(3) Cari Data"<<endl;
+        cout<<"(4) Hapus Data"<<endl;
+        cout<<"(5) Connect Data"<<endl;
+        cout<<"(0) Exit Program"<<endl;
         cout<<"Pilih Menu: ";cin>>pilihan;
 
     switch(pilihan){
         case 1:
-            system("cls");
-            cout<<"1. Insert Wisatawan"<<endl;
-            cout<<"2. Insert Paket Wisata"<<endl;
+            cout<<"\n(1) Insert Wisatawan"<<endl;
+            cout<<"(2) Insert Paket Wisata"<<endl;
             cout<<"Pilih Menu: ";cin>>pilihan;
             switch(pilihan) {
                 case 1:
-                    system("cls");
-                    cout<<"Atas Nama: ";cin>>W.atasNama;
+                    cout<<"\nAtas Nama: ";cin>>W.atasNama;
                     while (W.atasNama != "#"){
                         cout<<"Jumlah Dewasa: ";cin>>W.jmlDewasa;
                         cout<<"Jumlah Anak(<12 Tahun): ";cin>>W.jmlAnak;
-                        cout<<endl;
                         pW = createElmWisatawan(W);
                         insertLastWisatawan(LW, pW);
-                        cout<<"Atas Nama: ";cin>>W.atasNama;
+                        cout<<"\nAtas Nama: ";cin>>W.atasNama;
                     }
                     break;
                 case 2:
-                    system("cls");
-                    cout<<"Destinasi: ";cin>>P.destinasi;
+                    cout<<"\nDestinasi: ";cin>>P.destinasi;
                     while (P.destinasi != "#") {
                         cout<<"Harga: ";cin>>P.harga;
                         cout<<"Durasi(Hari): ";cin>>P.durasiHari;
                         cout<<"Durasi(Malamm): ";cin>>P.durasiMalam;
-                        cout<<endl;
                         pP = createElmPaket(P);
                         insertLastPaket(LP, pP);
-                        cout<<"Destinasi: ";cin>>P.destinasi;
+                        cout<<"\nDestinasi: ";cin>>P.destinasi;
                     }
                     break;
             }
             break;
         case 2:
-            system("cls");
-            cout<<"1. Data Wisatawan"<<endl;
-            cout<<"2. Data Paket Wisata"<<endl;
-            cout<<"3. Data Wisatawan dan Paketnya"<<endl;
-            cout<<"Pilih Menu: ";cin>>pilihan;
+            cout<<"\n(1) Data Wisatawan"<<endl;
+            cout<<"(2) Data Paket Wisata"<<endl;
+            cout<<"(3) Data Wisatawan dan Paketnya"<<endl;
+            cout<<"Pilih Menu: ";cin>>pilihan;cout<<endl;
             switch(pilihan) {
                 case 1:
                     showAllWisatawan(LW);
@@ -78,70 +74,85 @@ int main()
             }
             break;
         case 3:
-            system("cls");
-            cout<<"1. Cari Data Wisatawan"<<endl;
-            cout<<"2. Cari Data Paket Wisata"<<endl;
-            cout<<"3. Cari Data Paket pada Wisatawan"<<endl;
+            cout<<"\n(1) Cari Data Wisatawan"<<endl;
+            cout<<"(2) Cari Data Paket Wisata"<<endl;
+            cout<<"(3) Cari Data Paket pada Wisatawan"<<endl;
             cout<<"Pilih Menu: ";cin>>pilihan;
             switch(pilihan) {
                 case 1:
-                    cout<<"Wisatawan yang Ingin Dicari: ";cin>>atasNama;
+                    cout<<"\nWisatawan yang Ingin Dicari: ";cin>>atasNama;
                     pW = cariWisatawan(LW, atasNama);
                     if (pW != NULL) {
                         printWisatawan(pW);
+                        cout<<"SUKSES: Data ditemukan"<<endl<<endl;
+                    } else {
+                        cout<<"NOTE: Data wisatawan tidak ditemukan"<<endl<<endl;
                     }
-
                     break;
                 case 2:
-                    cout<<"Paket yang Ingin Dicari: ";cin>>destinasi;
+                    cout<<"\nPaket yang Ingin Dicari: ";cin>>destinasi;
                     pP = cariPaket(LP, destinasi);
                     if (pP == NULL) {
                         printPaket(pP);
+                        cout<<"SUKSES: Data ditemukan"<<endl<<endl;
+                    } else {
+                        cout<<"NOTE: Data paket wisata tidak ditemukan"<<endl<<endl;
                     }
                     break;
                 case 3:
-                    cout<<"Wisatawan: ";cin>>atasNama;
-                    cout<<"Paket Wisata: ";cin>>destinasi;
+                    cout<<"\nWisatawan: ";cin>>atasNama;
                     pW = cariWisatawan(LW, atasNama);
                     if (pW != NULL) {
+                        cout<<"Paket Wisata: ";cin>>destinasi;
                         pR = cariRelasi(pW, destinasi);
                         if (pR != NULL) {
                             printWisatawanWithRelation(pW);
+                            cout<<"SUKSES: Data ditemukan"<<endl<<endl;
+                        } else {
+                            cout<<"NOTE: Wisatawan tidak memilih paket "<<destinasi<<endl<<endl;
                         }
+                    } else {
+                        cout<<"NOTE: Data wisatawan tidak ditemukan"<<endl<<endl;
                     }
                     break;
             }
             break;
         case 4:
-            system("cls");
-            cout<<"1. Hapus Data Wisatawan"<<endl;
-            cout<<"2. Hapus Data Paket Wisata"<<endl;
-            cout<<"3. Hapus Data Paket pada Wisatawan"<<endl;
+            cout<<"\n(1) Hapus Data Wisatawan"<<endl;
+            cout<<"(2) Hapus Data Paket Wisata"<<endl;
+            cout<<"(3) Hapus Data Paket pada Wisatawan"<<endl;
             cout<<"Pilih Menu: ";cin>>pilihan;
             switch(pilihan) {
                 case 1:
                     cout<<"WIsatawan yang Ingin Dihapus: ";cin>>atasNama;
                     deleteWisatawan(LW, atasNama);
+                    cout<<endl;
                     break;
                 case 2:
                     cout<<"Paket Wisata yang Ingin Dihapus: ";cin>>destinasi;
                     deletePaket(LP, LW, destinasi);
+                    cout<<endl;
                     break;
                 case 3:
                     cout<<"Paket Wisata: ";cin>>destinasi;
                     cout<<"Pada Wisatawan: ";cin>>atasNama;
                     deleteRelasi(LW, atasNama, destinasi);
+                    cout<<endl;
                     break;
             }
             break;
         case 5:
-            system("cls");
-            cout<<"Connect Wisatawan Atas Nama: ";cin>>atasNama;
-            cout<<"Dengan Paket Wisata: ";cin>>destinasi;
-            setPaketForWisatawan(LW, LP, atasNama, destinasi);
+            cout<<"\nConnect Wisatawan Atas Nama: ";cin>>atasNama;
+            do {
+                cout<<"Dengan Paket Wisata: ";cin>>destinasi;
+                do {
+                    setPaketForWisatawan(LW, LP, atasNama, destinasi);
+                    cout<<"Dengan Paket Wisata: ";cin>>destinasi;
+                } while (destinasi != "#");
+                cout<<"Connect Wisatawan Atas Nama: ";cin>>atasNama;
+            } while (atasNama != "#");
             break;
         case 0:
-
             break;
     }
     } while (pilihan != 0);
