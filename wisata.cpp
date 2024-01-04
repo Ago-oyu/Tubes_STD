@@ -125,9 +125,9 @@ void showAllWisatawanWithRelation(listWisatawan LW) {
     int i = 1;
     while (curr != NULL) {
         cout<<i<<". Atas Nama\t: "<<info(curr).atasNama<<endl;
-        cout<<"   Jumlah Dewasa\t: "<<info(curr).jmlDewasa<<endl;
+        cout<<"   Jumlah Dewasa: "<<info(curr).jmlDewasa<<endl;
         cout<<"   Jumlah Anak\t: "<<info(curr).jmlAnak<<endl;
-        cout<<"   Paket Wisata yang dipilih\t: ";
+        cout<<"   Paket Wisata yang dipilih: ";
         adrRelasi R = first(relasi(curr));
         if (R == NULL) {
             cout<<"Kosong"<<endl<<endl;
@@ -139,6 +139,7 @@ void showAllWisatawanWithRelation(listWisatawan LW) {
                 R = next(R);
                 x++;
             }
+            cout<<endl;
         }
         curr = next(curr);
         i++;
@@ -148,13 +149,13 @@ void showAllWisatawanWithRelation(listWisatawan LW) {
 void printWisatawan(adrWisatawan Q) {
     cout<<"   Atas Nama\t: "<<info(Q).atasNama<<endl;
     cout<<"   Jumlah Dewasa: "<<info(Q).jmlDewasa<<endl;
-    cout<<"   Jumlah Anak\t: "<<info(Q).jmlAnak<<endl<<endl;
+    cout<<"   Jumlah Anak\t: "<<info(Q).jmlAnak<<endl;
 }
 
 void printPaket(adrPaket Q) {
     cout<<"   Destinasi\t: "<<info(Q).destinasi<<endl;
     cout<<"   Harga\t: "<<info(Q).harga<<endl;
-    cout<<"   Durasi\t: "<<info(Q).durasiHari<<" Hari "<<info(Q).durasiMalam<<" Malam"<<endl<<endl;
+    cout<<"   Durasi\t: "<<info(Q).durasiHari<<" Hari "<<info(Q).durasiMalam<<" Malam"<<endl;
 }
 
 void printWisatawanWithRelation(adrWisatawan Q) {
@@ -164,7 +165,7 @@ void printWisatawanWithRelation(adrWisatawan Q) {
     cout<<"   Paket Wisata yang dipilih\t: ";
     adrRelasi R = first(relasi(Q));
     if (R == NULL) {
-        cout<<"Kosong"<<endl<<endl;
+        cout<<"Kosong"<<endl;
     } else {
         cout<<endl;
         char x = 'a';
@@ -241,8 +242,12 @@ void deleteRelasi(listWisatawan &LW, string atasNama, string destinasi) {
                 }
                 deleteAfterRelasi(prec, Q);
             }
+        } else {
+            cout<<"NOTE: Wisatawan tidak memilih paket "<<destinasi<<endl;
         }
 
+    } else {
+        cout<<"NOTE: Tidak ada wisatawan atas nama "<<atasNama<<endl;
     }
 }
 
@@ -288,7 +293,7 @@ void deleteWisatawan(listWisatawan &LW, string atasNama) {
     adrWisatawan Q;
     Q = cariWisatawan(LW, atasNama);
     if (Q == NULL) {
-        cout<<"warning: tidak ada wisatawan atas nama "<<atasNama<<endl<<endl;
+        cout<<"NOTE: Tidak ada wisatawan atas nama "<<atasNama<<endl;
     } else {
         clearRelasi(relasi(Q));
         if (Q == first(LW)) {
@@ -332,7 +337,7 @@ void deletePaket(listPaket &LP, listWisatawan &LW, string destinasi) {
     adrPaket Q;
     Q = cariPaket(LP, destinasi);
     if (Q == NULL) {
-        cout<<"warning: tidak ada paket dengan destinasi "<<destinasi<<endl<<endl;
+        cout<<"Note: Tidak ada paket dengan destinasi "<<destinasi<<endl;
     } else {
         adrWisatawan R = first(LW);
         while (R != NULL) {
