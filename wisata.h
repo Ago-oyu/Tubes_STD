@@ -71,6 +71,7 @@ adrRelasi cariRelasi(adrWisatawan W, string destinasi);
 void showAllWisatawan(listWisatawan LW);
 void showAllPaket(listPaket LP);
 void showAllWisatawanWithRelation(listWisatawan LW);
+void showFavoritPaket(listWisatawan LW, listPaket LP);
 void printWisatawan(adrWisatawan Q);
 void printPaket(adrPaket Q);
 void printWisatawanWithRelation(adrWisatawan Q);
